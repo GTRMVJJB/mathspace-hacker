@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM_OVERRIDE_MATHSPACE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        body { background: #000; color: #00ff41; font-family: 'Share Tech Mono', monospace; overflow-x: hidden; }
+        .glitch-text { text-shadow: 0.05em 0 0 #00fffc, -0.05em -0.025em 0 #fc00ff; animation: glitch 1s infinite; }
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 #00fffc, -0.05em -0.025em 0 #fc00ff; }
+            50% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.025em 0 #fc00ff; }
+            100% { text-shadow: -0.025em 0 0 #00fffc, -0.025em -0.0125em 0 #fc00ff; }
+        }
+        input, select { background: transparent; border: 1px solid #00ff41; color: #00ff41; padding: 10px; outline: none; }
+        .loading-bar { height: 4px; background: #00ff41; width: 0%; transition: width 0.2s; box-shadow: 0 0 15px #00ff41; }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    <canvas id="matrix"></canvas>
+
+    <div class="max-w-3xl mx-auto border-2 border-[#00ff41] p-6 bg-black/90 shadow-[0_0_30px_rgba(0,255,65,0.3)]">
+        <div class="flex justify-between border-b border-[#00ff41] pb-4 mb-6 text-xs italic">
+            <div>USER: ANONYMOUS_HACKER</div>
+            <div>UP-LINK: STABLE</div>
+            <div>ENCRYPTION: AES-256</div>
+        </div>
+
+        <h1 class="text-4xl font-bold mb-2 glitch-text tracking-widest">MATHSPACE_BYPASS_v2</h1>
+        <p class="mb-8 text-sm opacity-80">> INJECTING SCRIPTS INTO CENTRAL_MATH_CORE...</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="flex flex-col">
+                <label class="text-[10px] uppercase mb-1">Target Subject</label>
+                <select id="topic" onchange="updateSubtext()">
+                    <option value="ALGEBRA">Algebra (Quadratic/Linear)</option>
+                    <option value="GEOMETRY">Geometry (Trig/Volume)</option>
+                    <option value="CALCULUS">Calculus (Derivs/Integrals)</option>
+                    <option value="STATISTICS">Statistics (Prob/Mean)</option>
+                    <option value="NUMBER_THEORY">Number Theory (Primes/LCM)</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label class="text-[10px] uppercase mb-1">Problem Input</label>
+                <input type="text" id="problem" placeholder="Paste problem here...">
+            </div>
+        </div>
+
+        <button onclick="startHack()" id="hackBtn" class="w-full bg-[#00ff41] text-black font-bold py-3 hover:bg-white transition-all uppercase tracking-tighter">
+            Execute Decryption Sequence
+        </button>
+
+        <div class="mt-8">
+            <div class="flex justify-between text-xs mb-1">
+                <span id="status-text">IDLE...</span>
+                <span id="percent">0%</span>
+            </div>
+            <div class="w-full border border
